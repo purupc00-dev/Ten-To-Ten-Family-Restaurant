@@ -1,0 +1,471 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Full Menu - Ten To Ten Family Restaurant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#e7e2d9",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#dfd9d1",
+                      "surface-container-high": "#ede7df",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#fff2ef",
+                      "inverse-surface": "#32302a",
+                      "inverse-on-surface": "#f6f0e7",
+                      "on-tertiary-fixed": "#2c160e",
+                      "on-error": "#ffffff",
+                      "primary": "#af101a",
+                      "tertiary-fixed-dim": "#e7bdb1",
+                      "primary-fixed": "#ffdad6",
+                      "outline-variant": "#e4beba",
+                      "on-surface": "#1d1b16",
+                      "on-primary-fixed": "#410003",
+                      "primary-container": "#d32f2f",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#5b403d",
+                      "secondary-fixed": "#ffdfa0",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "background": "#fff9f0",
+                      "surface-tint": "#ba1a20",
+                      "secondary": "#795900",
+                      "tertiary-fixed": "#ffdbd0",
+                      "tertiary": "#6f5047",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fff9f0",
+                      "surface-container": "#f3ede4",
+                      "surface-bright": "#fff9f0",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "secondary-container": "#fec330",
+                      "on-background": "#1d1b16",
+                      "surface-container-low": "#f9f3ea",
+                      "on-secondary-container": "#6f5100",
+                      "on-secondary-fixed": "#261a00",
+                      "tertiary-container": "#8a685e",
+                      "outline": "#8f6f6c",
+                      "on-primary-container": "#fff2f0",
+                      "inverse-primary": "#ffb3ac",
+                      "on-primary-fixed-variant": "#930010",
+                      "on-tertiary-fixed-variant": "#5d4037",
+                      "surface-variant": "#e7e2d9",
+                      "secondary-fixed-dim": "#f8bd2a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "element-gap": "24px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "section-gap": "64px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Work Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Work Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "body-md": ["Work Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "price-display": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "price-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .menu-list-item {
+            border-bottom: 1px dashed theme('colors.tertiary');
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+        .menu-list-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .image-frame {
+             border: 1px solid theme('colors.secondary-container');
+         }
+         
+        /* Custom Ambient Shadows */
+        .shadow-ambient {
+            box-shadow: 0 10px 25px -5px rgba(175, 16, 26, 0.12), 0 8px 10px -6px rgba(175, 16, 26, 0.08);
+        }
+        .shadow-interactive {
+            box-shadow: 0 20px 25px -5px rgba(175, 16, 26, 0.15), 0 8px 10px -6px rgba(175, 16, 26, 0.1);
+        }
+
+        /* Smooth Page Fade-In to prevent FOUC */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body {
+            animation: fadeIn 0.4s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300" id="main-nav">
+<div class="max-w-7xl mx-auto w-full flex justify-between items-center px-6 md:px-12 py-4">
+<a class="text-headline-md font-headline-md font-bold text-primary flex items-center gap-2 scale-100 active:scale-95 transition-transform" href="index.html">
+<span class="material-symbols-outlined fill text-3xl">restaurant</span>
+            Ten To Ten
+        </a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 text-label-md font-label-md hover:text-primary transition-colors duration-300" href="menu.html">Menu</a>
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="about.html">About</a>
+<a class="text-on-surface-variant text-label-md font-label-md hover:text-primary transition-colors duration-300" href="index.html#contact">Contact</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<a class="bg-primary text-on-primary px-6 py-2.5 rounded-full text-label-md font-label-md hover:bg-tertiary shadow-ambient hover:shadow-interactive scale-100 active:scale-95 transition-all duration-300" href="https://www.swiggy.com/restaurants/patna/sipara/ten-to-ten-family-restaurant-686621/dineout" target="_blank">Book a Table</a>
+</div>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle Menu" class="md:hidden text-primary p-2 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<!-- Mobile Nav Overlay (Dropdown style) -->
+<div class="hidden absolute top-full left-0 w-full bg-surface/95 dark:bg-inverse-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-lg flex flex-col items-center py-6 gap-4 z-40 transition-all duration-300" id="mobile-menu">
+<a class="text-headline-md font-headline-md text-on-surface-variant py-2 px-6 hover:bg-primary/5 rounded-full transition-all w-[80%] text-center" href="index.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+<a class="text-headline-md font-headline-md text-primary py-2 px-6 hover:bg-primary/5 rounded-full transition-all w-[80%] text-center" href="menu.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Menu</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant py-2 px-6 hover:bg-primary/5 rounded-full transition-all w-[80%] text-center" href="about.html" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+<a class="text-headline-md font-headline-md text-on-surface-variant py-2 px-6 hover:bg-primary/5 rounded-full transition-all w-[80%] text-center" href="index.html#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+<a class="mt-2 bg-primary text-on-primary px-8 py-3 rounded-full text-label-md font-label-md shadow-ambient hover:bg-tertiary transition-colors w-[80%] text-center" href="https://www.swiggy.com/restaurants/patna/sipara/ten-to-ten-family-restaurant-686621/dineout" onclick="document.getElementById('mobile-menu').classList.add('hidden')" target="_blank">Book a Table</a>
+</div>
+</nav>
+<main class="flex-grow pt-20 pb-section-gap max-w-7xl mx-auto w-full px-container-padding md:px-12">
+<header class="text-center mb-section-gap">
+<h1 class="text-headline-lg-mobile md:text-headline-xl font-headline-xl text-primary mb-4">Our Full Menu</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Explore our wide variety of dishes, crafted with warm, inviting flavors perfect for family dining.</p>
+</header>
+<!-- Reference Image Display (Hidden but present for content reference) -->
+<div class="hidden">
+<img alt="Menu Reference" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8_TqaUdc0wOHjNalwz8qPKYsfbQckoxKeiwyD1K5gdTzxy7qoBxdrsmwK4LujTLcqvkR0J2zCj70jPuDWOVbbAj3B7KU7t0rd9IRDoBl-sYExyoVoYTSMPy3Th2kn8TCKw-F-kWptG16F4gdOoqm1HCKrYsrLhEXwkxa61TMVFGQJM8rpjiByryCqTi-b5xsUBOXMLPVtG9MvB0xv28yAtcZduhb8iqdkhtUmOGV0LpUpgcKwrh4F-wG-ndb8euoK3JMN5bMCLcc" class="">
+</div>
+<!-- Bento Grid Layout for Menu -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-element-gap">
+<!-- Category: Chicken Gravy -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border border-surface-container-highest">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">restaurant_menu</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Chicken Gravy
+                </h2>
+<ul class="relative z-10">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Butter Masala (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹390</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Butter Masala (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹220</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Curry (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹320</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Curry (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹180</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Tikka Butter Masala (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹480</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Tikka Butter Masala (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹270</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Masala (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹340</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Masala (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹190</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Kadhai (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹350</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Kadhai (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹200</span>
+</li>
+</ul>
+</section>
+<!-- Category: Mutton -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border border-surface-container-highest flex flex-col">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">local_dining</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Mutton
+                </h2>
+<ul class="relative z-10">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Curry (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹520</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Curry (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹280</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Masala (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹540</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Masala (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹290</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Do Pyaza (Full)</span>
+<span class="font-price-display text-price-display text-primary">₹560</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Do Pyaza (Half)</span>
+<span class="font-price-display text-price-display text-primary">₹300</span>
+</li>
+</ul>
+<!-- Highlight Image Placeholder for Mutton -->
+<div class="mt-6 rounded-lg overflow-hidden flex-grow min-h-[128px] image-frame" data-alt="A close-up shot of a rich, dark red mutton curry served in a traditional copper bowl. The lighting is warm and inviting, typical of a high-end family restaurant. Soft focus in the background highlights the tactile, appetizing texture of the dish. The color palette emphasizes warm umbers and chili reds." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCHhWZR-tllUkMalVJZU9HVLkdMpYlIrTV8yW36IfW2avtILe4XShAVOoX0BQuy0fvZwBN1_PP5Mh65f0_vweHkDXpWyGyJAa4KnJvkQOvuIJwS4vZDjhc__jy9afm86OgZZN0ju43CjqOD367c-3yEfC73Jw1bXSnl-jOVPQv2kc2JhTksP6J0StgWHaIHWWb5YVXKATsi4xXrQDOlM9hbXvMcRcpDz4lli2y1bC_nZNsIycuATV-gMtfgXKbiPxRUgjzuNBvKoMo&quot;); background-size: cover; background-position: center center;"></div>
+</section>
+<!-- Category: Chinese -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border border-surface-container-highest">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">ramen_dining</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Chinese
+                </h2>
+<ul class="relative z-10">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Veg Chowmein</span>
+<span class="font-price-display text-price-display text-primary">₹80</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Paneer Chowmein</span>
+<span class="font-price-display text-price-display text-primary">₹110</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Chowmein</span>
+<span class="font-price-display text-price-display text-primary">₹120</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mix Chowmein</span>
+<span class="font-price-display text-price-display text-primary">₹140</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Veg Hakka Noodles</span>
+<span class="font-price-display text-price-display text-primary">₹110</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Hakka Noodles</span>
+<span class="font-price-display text-price-display text-primary">₹150</span>
+</li>
+</ul>
+</section>
+<!-- Category: Biryani -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border border-surface-container-highest md:col-span-2 lg:col-span-1 flex flex-col">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">rice_bowl</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Biryani
+                </h2>
+<ul class="relative z-10">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Veg Biryani</span>
+<span class="font-price-display text-price-display text-primary">₹150</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Biryani</span>
+<span class="font-price-display text-price-display text-primary">₹180</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Biryani</span>
+<span class="font-price-display text-price-display text-primary">₹250</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Egg Biryani</span>
+<span class="font-price-display text-price-display text-primary">₹140</span>
+</li>
+</ul>
+<!-- Highlight Image Placeholder for Biryani -->
+<div class="mt-6 rounded-lg overflow-hidden flex-grow min-h-[128px] image-frame" data-alt="A steaming plate of aromatic chicken biryani garnished with fried onions and fresh mint leaves. The dish is presented on a modern ceramic plate resting on a cream parchment-colored table. The lighting emphasizes the golden saffron colors of the rice, creating a warm, appetizing visual experience." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAVXrqa7PXkI1GsHVItXTLWNYhnsTUvhqVyjxYlUoHc21U7M0ZaPrLI0u9PWaSJ7nZf67O_CMdm6kj5oAX2B7G_ZC6aePTUWW8hOnu_nke962Gb_4wLnlPYJXJgAIpkocpHzUuht5UrBbqRkXjtZ-4xGe_IsUJV0Isp28SsCCvUyCecFbBe6NPtZj8L6yDw6UxX6FX1KOukkFu-eHZ1PMXN4sm-WwuJA3d8qjtYuZ64WOk4584somSMX2T0JYpJH4FwMI-AyC-s4dI&quot;); background-size: cover; background-position: center center;"></div>
+</section>
+<!-- Category: Salad & Papad / Thalis -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm relative overflow-hidden border border-surface-container-highest">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">restaurant</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Salad &amp; Papad
+                </h2>
+<ul class="relative z-10 mb-8">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Green Salad</span>
+<span class="font-price-display text-price-display text-primary">₹60</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Onion Salad</span>
+<span class="font-price-display text-price-display text-primary">₹40</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Roasted Papad</span>
+<span class="font-price-display text-price-display text-primary">₹15</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Fry Papad</span>
+<span class="font-price-display text-price-display text-primary">₹20</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Masala Papad</span>
+<span class="font-price-display text-price-display text-primary">₹40</span>
+</li>
+</ul>
+<h2 class="text-headline-md font-headline-md text-on-surface mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full inline-block"></span>
+                     Thalis
+                </h2>
+<ul class="relative z-10">
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Veg Thali</span>
+<span class="font-price-display text-price-display text-primary">₹150</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Chicken Thali</span>
+<span class="font-price-display text-price-display text-primary">₹220</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Mutton Thali</span>
+<span class="font-price-display text-price-display text-primary">₹280</span>
+</li>
+<li class="menu-list-item flex justify-between items-center">
+<span class="font-bold">Egg Thali</span>
+<span class="font-price-display text-price-display text-primary">₹180</span>
+</li>
+</ul>
+</section>
+<!-- Category: New Items (Roll, Momo, Pizza) -->
+<section class="bg-primary-container text-on-primary-container rounded-xl p-6 shadow-md relative overflow-hidden border border-primary md:col-span-2 lg:col-span-1">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<h2 class="text-headline-md font-headline-md mb-6 relative z-10 flex items-center gap-2">
+<span class="w-8 h-1 bg-on-primary-container rounded-full inline-block"></span>
+                     New Items
+                </h2>
+<h3 class="font-bold text-lg mb-2 mt-4 border-b border-on-primary-container/30 pb-1">Rolls</h3>
+<ul class="relative z-10 mb-4">
+<li class="flex justify-between items-center py-1">
+<span class="">Veg Roll</span>
+<span class="font-bold">₹50</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Paneer Roll</span>
+<span class="font-bold">₹70</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Chicken Roll</span>
+<span class="font-bold">₹80</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Egg Roll</span>
+<span class="font-bold">₹50</span>
+</li>
+</ul>
+<h3 class="font-bold text-lg mb-2 mt-4 border-b border-on-primary-container/30 pb-1">Momo</h3>
+<ul class="relative z-10 mb-4">
+<li class="flex justify-between items-center py-1">
+<span class="">Veg Momo</span>
+<span class="font-bold">₹60</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Paneer Momo</span>
+<span class="font-bold">₹80</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Chicken Momo</span>
+<span class="font-bold">₹90</span>
+</li>
+</ul>
+<h3 class="font-bold text-lg mb-2 mt-4 border-b border-on-primary-container/30 pb-1">Pizza</h3>
+<ul class="relative z-10">
+<li class="flex justify-between items-center py-1">
+<span class="">Veg Pizza</span>
+<span class="font-bold">₹150</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Paneer Pizza</span>
+<span class="font-bold">₹180</span>
+</li>
+<li class="flex justify-between items-center py-1">
+<span class="">Chicken Pizza</span>
+<span class="font-bold">₹220</span>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<!-- Footer Placeholder (Extracted from JSON) -->
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full py-16 px-6 md:px-12 flex flex-col items-center gap-base text-center border-t-0" id="contact-section">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined fill text-3xl">restaurant</span>
+             Ten To Ten
+        </div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8"><div class="flex flex-wrap justify-center items-center gap-4">
+<a class="bg-primary text-on-primary px-6 py-2 rounded-full text-label-md font-label-md hover:bg-tertiary shadow-ambient hover:shadow-interactive min-w-[160px] flex items-center justify-center gap-2 transition-all duration-300" href="tel:+918877102040">
+<span class="material-symbols-outlined text-[20px]">call</span> Call Us
+    </a>
+<a class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full text-label-md font-label-md hover:bg-secondary-fixed-dim shadow-ambient hover:shadow-interactive min-w-[160px] flex items-center justify-center gap-2 transition-all duration-300" href="https://wa.me/918877102040" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span> WhatsApp Us
+    </a>
+<a class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full text-label-md font-label-md hover:bg-secondary-fixed-dim shadow-ambient hover:shadow-interactive min-w-[160px] flex items-center justify-center gap-2 transition-all duration-300" href="https://www.google.com/maps/search/?api=1&query=Ten+To+Ten+Family+Restaurant+Sipara+Patna" target="_blank">
+<span class="material-symbols-outlined text-[20px]">directions</span> Get Directions
+    </a>
+</div></div>
+<p class="text-body-md font-body-md text-on-surface dark:text-inverse-on-surface opacity-70">
+            © 2024 Ten To Ten Family Restaurant. All rights reserved.
+        </p>
+</footer>
+
+
+</body></html>
